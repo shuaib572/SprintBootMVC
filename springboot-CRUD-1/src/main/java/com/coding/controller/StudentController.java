@@ -52,7 +52,7 @@ public class StudentController {
 		 }
 		 
 
-		return "StudentRegister";
+		return "StudentRegister"; 
 	}
 	// Fetch Data From UI
 	
