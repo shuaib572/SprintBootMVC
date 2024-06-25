@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome To Data Page</h1>
+<table border="1">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Gender</th>
+		<th>DOB</th>
+		<th>Cource</th>
+		<th>Language</th>
+		<th>Contact</th>
+		<th>Operation</th>
+	</tr>
+	<tr th:each="ob:${list}">
+		<td th:text="${ob.Sid}"></td>
+		<td th:text="${ob.Sname}"></td>
+		<td th:text="${ob.Sgen}"></td>
+		<td th:text="${ob.Sdob}"></td>
+		<td th:text="${ob.Scource}"></td>
+		<td th:text="${ob.Sno}"></td>
+		<td th:text="${ob.Slang}"></td>
+		<td>
+			<a th:href="@{/student/delete?id={id}(id=${ob.Sid})}">Delete</a>   <!-- URL Rewriteing -->
+			<a th:href="@{/student/edit?id={id}(id=${ob.Sid})}">edit</a>
+		</td>
+	</tr>
+</table>
+<span th:text="${msg}"></span>
+</body>
+</html>

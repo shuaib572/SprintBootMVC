@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Update</title>
+</head>
+<body>
+<h3>Welcome to the Student Update Page</h3>
+<form th:action="@{/student/update}" th:method="post" th:object="${student}">
+<pre>
+Student ID		:<input type="text" th:field="*{Sid}" readonly="readonly"/>
+Student Name   : <input type="text" th:field="*{Sname}" />
+Student Gender : <input type="radio" th:field="*{Sgen}" value="Male" /> Male
+    		:<input type="radio" th:field="*{Sgen}" value="Female" /> Female
+Student Course : <input type="text" th:field="*{Scource}" />
+Contact Number : <input type="number" th:field="*{Sno}" />
+DOB            : <input type="date" th:field="*{Sdob}" />
+Languages      : <select th:field="*{Slang}">
+    <option value="">Select</option>
+    <option value="JAVA">Java</option>
+    <option value="C">C</option>
+    <option value="HTML">HTML</option>
+    <option value="SQL">SQL</option>
+    <option value="JS">JavaScript</option>
+    <option value="PYTHON">Python</option>
+</select>
+Password       : <input type="password" th:field="*{Spwd}" />
+    <input type="submit" value="Update" />
+ 
+</body>
+</html>

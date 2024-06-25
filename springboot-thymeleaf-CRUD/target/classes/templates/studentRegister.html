@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form pre {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="date"],
+        form input[type="password"],
+        form select {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: calc(100% - 22px);
+        }
+
+        form input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            display: block;
+            margin-top: 10px;
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h3>Welcome to the Student Register Page</h3>
+<form th:action="@{/student/save}" method="post" th:object="${student}">
+<pre>
+Student Name   : <input type="text" th:field="*{Sname}" />
+Student Gender : <input type="radio" th:field="*{Sgen}" value="Male" /> Male
+            :<input type="radio" th:field="*{Sgen}" value="Female" /> Female
+Student Course : <input type="text" th:field="*{Scource}" />
+Contact Number : <input type="number" th:field="*{Sno}" />
+DOB            : <input type="date" th:field="*{Sdob}" />
+Languages      : <select th:field="*{Slang}">
+    <option value="">Select</option>
+    <option value="JAVA">Java</option>
+    <option value="C">C</option>
+    <option value="HTML">HTML</option>
+    <option value="SQL">SQL</option>
+    <option value="JS">JavaScript</option>
+    <option value="PYTHON">Python</option>
+</select>
+Password       : <input type="password" th:field="*{Spwd}" />
+    <input type="submit" value="Register" />
+    <!-- Print model message -->
+<span th:text="${message}"></span>
+</form>
+</body>
+</html>
